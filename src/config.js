@@ -1,0 +1,1 @@
+export const USER_LOCATION = 'USER_LOCATION'
