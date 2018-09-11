@@ -1,3 +1,14 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
-AppRegistry.registerComponent('yawa', () => App);
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from './src/screens';
+
+registerScreens();
+
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: 'Home'
+      }
+    },
+  });
+});
