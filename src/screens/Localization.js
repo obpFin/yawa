@@ -6,9 +6,8 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import { goToLocalization, goHome } from './navigation'
 
-import { USER_LOCATION } from './config'
+import { USER_LOCATION } from '../config'
 
 export default class Localization extends React.Component {
   async componentDidMount() {
@@ -16,7 +15,7 @@ export default class Localization extends React.Component {
       const userLocation = await AsyncStorage.getItem(USER_LOCATION)
       console.log('location: ', userLocation)
       if (userLocation) {
-        goHome()
+        // goHome()
       } else {
         // todo: locate user
       }
