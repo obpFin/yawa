@@ -4,19 +4,18 @@ import {Platform} from 'react-native';
 import { constants } from './src/utils/constants';
 import { registerScreens } from './src/screens';
 
-registerScreens(); // this is where you register all of your app's screens
+registerScreens(); 
 
 const tabs = [
   {
     label: 'Yawa',
-    screen: 'Home', // this is a registered name for a screen
+    screen: 'Home', 
     // icon: require('../img/one.png'),
     // selectedIcon: require('../img/one_selected.png'), // iOS only
     title: 'Yawa'
   }
 ]
 
-// start the app
 Navigation.startTabBasedApp({
   tabs,
   animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
