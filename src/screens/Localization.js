@@ -3,25 +3,22 @@ import {
   View,
   Text,
   StyleSheet,
-  AsyncStorage
 } from 'react-native'
 
-
-import { USER_LOCATION } from '../config'
-
 export default class Localization extends React.Component {
-  async componentDidMount() {
-    try {
-      const userLocation = await AsyncStorage.getItem(USER_LOCATION)
-      console.log('location: ', userLocation)
-      if (userLocation) {
-        // goHome()
-      } else {
-        // todo: locate user
-      }
-    } catch (err) {
-      console.log('error: ', err)
-    }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      latitude: null,
+      longitude: null,
+      error: null,
+    };
+  }
+
+  componentDidMount() {
+    this.props.locateUser()
   }
 
   render() {

@@ -1,15 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { StyleSheet, View, AsyncStorage} from 'react-native';
+
+import { USER_LOCATION } from '../config'
+import Home from './src/screens/Home';
+import Localization from './src/screens/Localization';
+
+import locateUser from '../utils/geolocation'
 
 export default class App extends React.Component {
+
+  state = {
+    latitude: null,
+    longitude: null,
+    error: null,
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      {this.userLocation ? 
+        <Home/>
+        :
+        <Localization locateUser={locateUser}/>
+      }
       </View>
-    );
+    )
   }
 }
 
