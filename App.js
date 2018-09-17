@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { StyleSheet, View, AsyncStorage} from 'react-native';
+import { StyleSheet, View} from 'react-native';
 
-import { USER_LOCATION } from '../config'
 import Home from './src/screens/Home';
 import Localization from './src/screens/Localization';
 
@@ -17,9 +16,10 @@ export default class App extends React.Component {
   };
 
   render() {
+    const location = { latitude: this.state.latitude, longitude: this.state.longitude }
     return (
       <View style={styles.container}>
-      {this.userLocation ? 
+      {location.longitude ? 
         <Home/>
         :
         <Localization locateUser={locateUser}/>
