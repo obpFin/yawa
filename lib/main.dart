@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './screens/tabs_screen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([
@@ -14,55 +15,42 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Yawa',
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
-  Widget _buildAppBar() {
     return Platform.isIOS
-        ? CupertinoNavigationBar(
-            middle: Text(
-              'Yawa',
+        ? CupertinoApp(
+            title: 'yawa',
+            routes: {
+              '/': (ctx) => TabsScreen(),
+            },
+            theme: CupertinoThemeData(
+              primaryContrastingColor: Colors.white,
+              primaryColor: Colors.lightBlue,
+              textTheme: CupertinoTextThemeData().copyWith(
+                  // primaryColor:
+                  ),
             ),
           )
-        : AppBar(
-            title: Text(
-              'Yawa',
+        : MaterialApp(
+            title: 'Yawa',
+            theme: ThemeData(
+              primarySwatch: Colors.lightBlue,
+              fontFamily: 'Raleway',
+              textTheme: ThemeData.light().textTheme.copyWith(
+                    body1: TextStyle(
+                      color: Colors.black,
+                    ),
+                    title: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
             ),
-          );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final appBar = _buildAppBar();
-    final pageBody = SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text('yawa body'),
-          ],
-        ),
-      ),
-    );
-    return Platform.isIOS
-        ? CupertinoPageScaffold(
-            child: pageBody,
-            navigationBar: appBar,
-          )
-        : Scaffold(
-            appBar: appBar,
-            body: pageBody,
+            routes: {
+              '/': (ctx) => TabsScreen(),
+            },
+            onGenerateRoute: (settings) {
+              // print(settings.arguments);
+              // return MaterialPageRoute(builder: (ctx) => TabsScreen());
+            },
+            // onUnknownRoute: (settings) {
+            //   return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+            // },
           );
   }
 }
