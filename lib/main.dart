@@ -24,9 +24,10 @@ class MyApp extends StatelessWidget {
             theme: CupertinoThemeData(
               primaryContrastingColor: Colors.white,
               primaryColor: Colors.lightBlue,
+              barBackgroundColor: Colors.lightBlue,
               textTheme: CupertinoTextThemeData().copyWith(
                   // primaryColor:
-                  ),
+              ),
             ),
           )
         : MaterialApp(
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
               fontFamily: 'Raleway',
               textTheme: ThemeData.light().textTheme.copyWith(
                     body1: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     title: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
