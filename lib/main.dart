@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
               barBackgroundColor: Colors.lightBlue,
               textTheme: CupertinoTextThemeData().copyWith(
                   // primaryColor:
-              ),
+                  ),
             ),
           )
         : MaterialApp(
@@ -38,8 +38,13 @@ class MyApp extends StatelessWidget {
               textTheme: ThemeData.light().textTheme.copyWith(
                     body1: TextStyle(
                       color: Colors.white,
+                      fontSize: 24,
                     ),
-                    title: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    title: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
             ),
             routes: {
