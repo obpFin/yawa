@@ -42,7 +42,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
     return Platform.isIOS
         ? CupertinoPageScaffold(
-            navigationBar: appBar,
+            navigationBar: appBar,  
             child: _pages[_selectedPageIndex]['page'],
           )
         : Scaffold(
