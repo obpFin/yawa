@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TodayScreen extends StatelessWidget {
-  static const pageRoute = 'today';
+  static const routeName = 'today';
 
   @override
   Widget build(BuildContext context) {
