@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import './screens/tabs_screen.dart';
+import './screens/week_screen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([
@@ -49,6 +51,7 @@ class MyApp extends StatelessWidget {
             ),
             routes: {
               '/': (ctx) => TabsScreen(),
+              WeekScreen.routeName: (ctx) => WeekScreen(),
             },
             onGenerateRoute: (settings) {
               // print(settings.arguments);
