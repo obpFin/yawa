@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,7 +8,8 @@ import 'package:flutter/services.dart';
 import './screens/tabs_screen.dart';
 import './screens/week_screen.dart';
 
-void main() {
+Future main() async {
+  await DotEnv().load('.env');
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -17,6 +19,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // print(DotEnv().env['API_KEY']);
     return Platform.isIOS
         ? CupertinoApp(
             title: 'yawa',
